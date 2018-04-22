@@ -1,6 +1,7 @@
 package ru.vyacheslav.lessons;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Arrays;
 public class WordGame
 {
     public static void main(String[] args)
@@ -33,19 +34,27 @@ public class WordGame
                     System.out.print("Введите слово: ");
                     scan.nextLine();
                     usrWord = scan.nextLine();
-                    if (usrWord.equals(rndWord)) System.out.println("Поздравляем" + rndWord + "верное слово");
+                    if (usrWord.equals(rndWord))
+                    {
+                        System.out.println("Поздравляем " + rndWord + " верное слово");
+                        break;
+                    }
+
                     else
                     {
+                        char[] disp = new char[rndWord.length()];
                         for (int j = 0; j < rndWord.length() ; j++)
                         {
                             for (int k = 0; k < usrWord.length() ; k++)
                             {
-
+                                if(rndWord.charAt(j)==usrWord.charAt(k))disp[j]=rndWord.charAt(j);
+                                else;
                             }
                         }
+                        System.out.println(Arrays.toString(disp));
                     }
                 }
-
+                System.out.println("Для продолжения нажмите -1, Для выхода -0");
                 do
                     {
                         menu=scan.nextInt();
