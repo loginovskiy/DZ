@@ -7,7 +7,7 @@ public class NumbersGame
     {
         int rndNum, usrNum, menu;       //объявление целочисленных переменных;
         Random rnd = new Random();
-        Scanner scan = new Scanner(System.in);      //объявление переменных типа Random и Scanner;
+        Scanner scan = new Scanner(System.in);      //объявление и выделение памяти под объекты типа Random и Scanner;
         System.out.println("Начать игру -1, Выход -0");
         do
         {
