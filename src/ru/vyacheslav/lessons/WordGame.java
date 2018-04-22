@@ -21,19 +21,35 @@ public class WordGame
         }while(menu>1 || menu<0);
         if(menu==1)
         {
+
             do
             {
                 rndNum = rnd.nextInt(words.length);
                 rndWord = words[rndNum];
                 System.out.println(rndWord);
                 System.out.println("Было загаданно случайное слово из предлженных");
-                System.out.print("Введите слово: ");
-                scan.nextLine();
-                usrWord = scan.nextLine();
-                do
+                for (int i = 0; i <3 ; i++)
                 {
-                    menu=scan.nextInt();
-                }while(menu<0 | menu >1);
+                    System.out.print("Введите слово: ");
+                    scan.nextLine();
+                    usrWord = scan.nextLine();
+                    if (usrWord.equals(rndWord)) System.out.println("Поздравляем" + rndWord + "верное слово");
+                    else
+                    {
+                        for (int j = 0; j < rndWord.length() ; j++)
+                        {
+                            for (int k = 0; k < usrWord.length() ; k++)
+                            {
+
+                            }
+                        }
+                    }
+                }
+
+                do
+                    {
+                        menu=scan.nextInt();
+                    }while(menu<0 | menu >1);
             }while(menu==1);
         }
         else;
