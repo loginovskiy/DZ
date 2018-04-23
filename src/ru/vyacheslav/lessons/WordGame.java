@@ -2,9 +2,12 @@ package ru.vyacheslav.lessons;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Arrays;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 public class WordGame
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws IOException
     {
         int menu, rndNum;
         String rndWord;
@@ -27,13 +30,15 @@ public class WordGame
             {
                 rndNum = rnd.nextInt(words.length);
                 rndWord = words[rndNum];
-                System.out.println(rndWord);
-                System.out.println("Было загаданно случайное слово из предлженных");
+                //System.out.println(rndWord);
+                System.out.println("Было загаданно случайное слово из предлженных: ");
+                System.out.println(Arrays.toString(words));
+                BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
+                char[] disp = new char[rndWord.length()];
                 for (int i = 0; i <3 ; i++)
                 {
                     System.out.print("Введите слово: ");
-                    scan.nextLine();
-                    usrWord = scan.nextLine();
+                    usrWord = read.readLine();
                     if (usrWord.equals(rndWord))
                     {
                         System.out.println("Поздравляем " + rndWord + " верное слово");
@@ -42,7 +47,6 @@ public class WordGame
 
                     else
                     {
-                        char[] disp = new char[rndWord.length()];
                         for (int j = 0; j < rndWord.length() ; j++)
                         {
                             for (int k = 0; k < usrWord.length() ; k++)
