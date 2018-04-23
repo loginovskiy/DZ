@@ -55,7 +55,7 @@ public class WordGame
                                 else;
                             }
                         }
-                        System.out.println(Arrays.toString(disp));
+                        System.out.println("Совпадают буквы: "+Arrays.toString(disp)+"\n");
                     }
                 }
                 System.out.println("Для продолжения нажмите -1, Для выхода -0");
