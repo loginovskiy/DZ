@@ -16,21 +16,21 @@ public class TicTacToe
     {
         initMap(3,3);
         printMap();
-//        while(true)
-//        {
-//            humanTern();
-//            if(checkWin(HUMAN_DOT))
-//            {
-//                System.out.println("Выйграл игрок");
-//                break;
-//            }
+        while(true)
+        {
+            humanTern();
+            if(checkWin(HUMAN_DOT))
+            {
+                System.out.println("Выйграл игрок");
+                break;
+            }
 //            if(isMapFull())
 //            {
 //                System.out.println("Ничья");
 //                break;
 //            }
 //            aiTurn();
-//            printMap();
+            printMap();
 //            if(checkWin(AI_DOT))
 //            {
 //                System.out.println("Выйграл компьютер");
@@ -41,8 +41,8 @@ public class TicTacToe
 //                System.out.println("Ничья");
 //                break;
 //            }
-//        }
-        scn.close();
+        }
+//        scn.close();
     }
     private static void initMap(int sizeY, int sizeX)
     {

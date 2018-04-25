@@ -2,9 +2,9 @@ package ru.vyacheslav.lessons;
 class Que
 {
     private int putloc,getloc;
-    int[] intArr;
-    char[] charArr;
-    double[] doubArr;
+    private int[] intArr;
+    private char[] charArr;
+    private double[] doubArr;
     Que(int size)
     {
         intArr = new int[size+1];
@@ -33,7 +33,7 @@ class Que
     }
     void put(char val)
     {
-        if(!inRange(putloc, intArr.length-1))
+        if(!inRange(putloc, charArr.length-1))
         {
             System.out.println("Очередь заполнена");
             return;
@@ -43,12 +43,20 @@ class Que
     }
     void put(double val)
     {
-
+        if(!inRange(putloc, doubArr.length-1))
+        {
+            System.out.println("Очередь заполнена");
+            return;
+        }
+        doubArr[putloc]=val;
+        putloc++;
     }
     private boolean inRange(int putIndex, int size)
     {
         return putIndex<size;
     }
+    private void errMsg(){};
+
 }
 
 
