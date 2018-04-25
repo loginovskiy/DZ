@@ -24,25 +24,26 @@ public class TicTacToe
                 System.out.println("Выйграл игрок");
                 break;
             }
-//            if(isMapFull())
-//            {
-//                System.out.println("Ничья");
-//                break;
-//            }
-//            aiTurn();
+            if(isMapFull())
+            {
+                System.out.println("Ничья");
+                break;
+            }
+            aiTurn();
             printMap();
-//            if(checkWin(AI_DOT))
-//            {
-//                System.out.println("Выйграл компьютер");
-//                break;
-//            }
-//            if(isMapFull())
-//            {
-//                System.out.println("Ничья");
-//                break;
-//            }
+            if(checkWin(AI_DOT))
+            {
+                System.out.println("Выйграл компьютер");
+                break;
+            }
+            if(isMapFull())
+            {
+                System.out.println("Ничья");
+                break;
+            }
+
         }
-//        scn.close();
+          scn.close();
     }
     private static void initMap(int sizeY, int sizeX)
     {
@@ -72,15 +73,34 @@ public class TicTacToe
     }
     private static void humanTern()
     {
-        System.out.print("Выберете строку для хода: ");
-        int num1 = scn.nextInt();
-        num1-=1;
-        System.out.print("Выберете столбец для хода: ");
-        int num2 = scn.nextInt();
-        num2-=1;
-        field[num1][num2]=HUMAN_DOT;
+        int num1,num2;
+        do
+        {
+            System.out.print("Введиту координаты: ");
+            num1 = scn.nextInt() - 1;
+            num2 = scn.nextInt() - 1;
+        }while(!isValidSell(num1,num2) || !isEmptySell(num1,num2));
+        field[num1][num2] = HUMAN_DOT;
+
     }
-    private static void aiTurn(){}
+    private static void aiTurn()
+    {
+        int num1,num2;
+        do
+        {
+            num1 = rnd.nextInt(fieldSizeX);
+            num2 = rnd.nextInt(fieldSizeY);
+        }while(!isEmptySell(num1,num2));
+        field[num1][num2] = AI_DOT;
+    }
     private static boolean checkWin(char c){return false;}
     private static boolean isMapFull(){return false;}
+    private static boolean isValidSell(int x, int y)
+    {
+        return x>=0 && x<fieldSizeX && y>=0 && y<fieldSizeY;
+    }
+    private static boolean isEmptySell(int x, int y)
+    {
+        return field[x][y] == EMPTY_DOT;
+    }
 }
