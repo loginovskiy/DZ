@@ -17,10 +17,10 @@ public class ArrCheck
                 arr[i][j]=DOT;
             }
         }
-        for (int i = 0; i <arr.length ; i++)
-        {
-            arr[i][i]=DOTx;
-        }
+//        for (int i = 0; i <arr.length ; i++)
+//        {
+//            arr[i][i]=DOTx;
+//        }
         for (int i = ySIZE-1; i >= 0; i--)
         {
             arr[i][(i-(ySIZE-1))*-1]=DOTx;
