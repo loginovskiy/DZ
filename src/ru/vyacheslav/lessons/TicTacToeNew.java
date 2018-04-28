@@ -12,38 +12,47 @@ public class TicTacToeNew
     private static char[][] field;
     private static int fieldSizeY;
     private static int fieldSizeX;
-
+    private static int menu;
     public static void main(String[] args)
     {
-        initMap(3,3);
-        showMap();
-        while(true)
+        do
         {
-            humanTern();
-            if(checkWin(USR_DOT))
-            {
-                System.out.println("Победил игрок");
-                break;
-            }
-            if(isMapFull())
-            {
-                System.out.println("Ничья");
-                break;
-            }
+            initMap(3, 3);
             showMap();
-            aiTern();
-            if(checkWin(AI_DOT))
+            while (true)
             {
-                System.out.println("Победил компьютер");
-                break;
+                humanTern();
+                showMap();
+                if (checkWin(USR_DOT))
+                {
+                    System.out.println("Победил игрок");
+                    break;
+                }
+                if (isMapFull())
+                {
+                    System.out.println("Ничья");
+                    break;
+                }
+                aiTern();
+                showMap();
+                if (checkWin(AI_DOT))
+                {
+                    System.out.println("Победил компьютер");
+                    break;
+                }
+                if (isMapFull())
+                {
+                    System.out.println("Ничья");
+                    break;
+                }
+
             }
-            if(isMapFull())
+            System.out.print("Для того чтобы сыграть заново нажмите 1, чтобы выйти нажмите 0: ");
+            do
             {
-                System.out.println("Ничья");
-                break;
-            }
-            showMap();
-        }
+                menu=scan.nextInt();
+            }while(menu<0 || menu>1);
+        }while(menu==1);
     }
     private static void initMap(int ySize,int xSize)
     {
@@ -76,14 +85,22 @@ public class TicTacToeNew
     }
     private static void humanTern()
     {
-        System.out.println("Введите координаты для хода: ");
+        System.out.print("Введите координаты для хода: ");
         int y;
         int x;
         do
         {
-            y = scan.nextInt();
-            x = scan.nextInt();
-        }while((y<0 || y>fieldSizeY && x<0 || x>fieldSizeY) && (field[y-1][x-1]!=EMPTY_DOT));
+            do
+            {
+                while(!scan.hasNextInt())
+                {
+                    System.out.println("Введены не координаты");
+                    scan.next();
+                }
+                y = scan.nextInt();
+                x = scan.nextInt();
+            } while (y < 0 || y > fieldSizeY && x < 0 || x > fieldSizeY);
+        }while (field[y - 1][x - 1] != EMPTY_DOT);
         field[y-1][x-1]=USR_DOT;
     }
     private static void aiTern()
@@ -108,5 +125,26 @@ public class TicTacToeNew
         }
         return true;
     }
-    private static boolean checkWin(char hc){return false;}
+    private static boolean checkWin(char ch)
+    {
+        int count1,count2;
+        for (int i = 0; i < fieldSizeY ; i++)
+        {
+            count1=count2=0;
+            for (int j = 0; j < fieldSizeX; j++)
+            {
+                if(field[i][j]==ch)count1++;
+                if(field[j][i]==ch)count2++;
+                if(count1==fieldSizeX | count2==fieldSizeY)return true;
+            }
+        }
+        count1=count2=0;
+        for (int i = 0; i < fieldSizeY ; i++)
+        {
+            if(field[i][i]==ch)count1++;
+            if(field[(i)][((i-(fieldSizeY-1))*(-1))]==ch)count2++;
+            if(count1==fieldSizeY |count2==fieldSizeY)return true;
+        }
+        return false;
+    }
 }
