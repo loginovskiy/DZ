@@ -53,6 +53,7 @@ public class TicTacToeNew
                 menu=scan.nextInt();
             }while(menu<0 || menu>1);
         }while(menu==1);
+        scan.close();
     }
     private static void initMap(int ySize,int xSize)
     {
@@ -97,6 +98,7 @@ public class TicTacToeNew
                     System.out.println("Введены не координаты");
                     scan.next();
                 }
+
                 y = scan.nextInt();
                 x = scan.nextInt();
             } while (y < 0 || y > fieldSizeY && x < 0 || x > fieldSizeY);
