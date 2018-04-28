@@ -93,7 +93,7 @@ public class TicTacToeNew
         {
             do
             {
-                while(!scan.hasNextInt(2))
+                while(!scan.hasNextInt())
                 {
                     System.out.println("Введены не координаты");
                     scan.next();
@@ -109,6 +109,66 @@ public class TicTacToeNew
     {
         int y;
         int x;
+        int count1,count2;
+        for (int i = 0; i <fieldSizeY ; i++)
+        {
+            count1=count2=0;
+            for (int j = 0; j <fieldSizeX ; j++)
+            {
+                if(field[i][j]==USR_DOT)
+                {
+                    count1++;
+                    if(count1>1) for (int k = 0; k <fieldSizeX ; k++)
+                    {
+                        if(field[i][k]==EMPTY_DOT)
+                        {
+                            field[i][k]=AI_DOT;
+                            return;
+                        }
+                    }
+                }
+                if(field[j][i]==USR_DOT)
+                {
+                    count2++;
+                    if(count2>1) for (int k = 0; k <fieldSizeY ; k++)
+                    {
+                        if(field[k][i]==EMPTY_DOT)
+                        {
+                            field[k][i]=AI_DOT;
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+        count1=count2=0;
+        for (int i = 0; i < fieldSizeY ; i++)
+        {
+            if(field[i][i]==USR_DOT)
+            {
+                count1++;
+                if(count1>1) for (int j = 0; j < fieldSizeY ; j++)
+                {
+                    if(field[j][j]==EMPTY_DOT)
+                    {
+                        field[j][j]=AI_DOT;
+                        return;
+                    }
+                }
+            }
+            if(field[(i)][((i-(fieldSizeY-1))*(-1))]==USR_DOT)
+            {
+                count2++;
+                if(count2>1) for (int j = 0; j <fieldSizeY ; j++)
+                {
+                    if(field[j][(j-(fieldSizeY-1)*(-1))]==EMPTY_DOT)
+                    {
+                        field[j][(j-(fieldSizeY-1)*(-1))]=AI_DOT;
+                        return;
+                    }
+                }
+            }
+        }
         do
         {
             y = rnd.nextInt(fieldSizeY);
@@ -145,7 +205,7 @@ public class TicTacToeNew
         {
             if(field[i][i]==ch)count1++;
             if(field[(i)][((i-(fieldSizeY-1))*(-1))]==ch)count2++;
-            if(count1==fieldSizeY |count2==fieldSizeY)return true;
+            if(count1==fieldSizeY | count2==fieldSizeY)return true;
         }
         return false;
     }
