@@ -93,7 +93,7 @@ public class TicTacToeNew
         {
             do
             {
-                while(!scan.hasNextInt())
+                while(!scan.hasNextInt(2))
                 {
                     System.out.println("Введены не координаты");
                     scan.next();
