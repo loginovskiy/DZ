@@ -156,14 +156,14 @@ public class TicTacToeNew
                     }
                 }
             }
-            if(field[(i)][((i-(fieldSizeY-1))*(-1))]==USR_DOT)
+            if(field[i][((i-(fieldSizeY-1))*(-1))]==USR_DOT)
             {
                 count2++;
                 if(count2>1) for (int j = 0; j <fieldSizeY ; j++)
                 {
-                    if(field[j][(j-(fieldSizeY-1)*(-1))]==EMPTY_DOT)
+                    if(field[j][((j-(fieldSizeY-1))*(-1))]==EMPTY_DOT)
                     {
-                        field[j][(j-(fieldSizeY-1)*(-1))]=AI_DOT;
+                        field[j][((j-(fieldSizeY-1))*(-1))]=AI_DOT;
                         return;
                     }
                 }
@@ -175,6 +175,7 @@ public class TicTacToeNew
             x = rnd.nextInt(fieldSizeX);
         }while(field[y][x]!=EMPTY_DOT);
         field[y][x]=AI_DOT;
+        return;
     }
     private static boolean isMapFull()
     {
