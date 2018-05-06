@@ -7,10 +7,15 @@ public class QuickSort
     {
         Random rnd = new Random();
         int[] array = new int[20];
+        Qs quick = new Qs();
         for (int i = 0; i <array.length ; i++)
         {
             array[i]=rnd.nextInt(50);
         }
         System.out.println(Arrays.toString(array));
+        quick.quicksort(array);
+        System.out.println(Arrays.toString(array));
     }
+
+
 }
