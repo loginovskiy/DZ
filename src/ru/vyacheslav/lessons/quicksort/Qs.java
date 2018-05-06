@@ -11,23 +11,23 @@ public class Qs
     }
     private void qs(int[] arr, int left, int right)
     {
-        this.array=arr;
+        array=arr;
         l=left;
         r=right;
-        op=array[(left+right)/2];
-        do
+        op=array[(left+right)/2];   //выбор опорного элемента;
+        for(;l<=r;)
         {
-            while((array[l]<op) && (l<right))l++;
-            while((array[r]>op) && (r>left))r--;
-            if(l<=r)
+            for (; array[l] < op && l < right; l++) ;   //поиск элементов с помощью цикла for;
+            for (; array[r] > op && r > left; r--) ;    //поиск элементов с помощью цикла for;
+            if (l <= r)
             {
-                temp=array[l];
-                array[l]=array[r];
-                array[r]=temp;
+                temp = array[l];
+                array[l] = array[r];
+                array[r] = temp;
                 r--;
                 l++;
             }
-        }while(l<=r);
+        }
         if(r>left)qs(array, left, r);
         if(l<right)qs(array, l, right);
     }
