@@ -4,9 +4,11 @@ import ru.vyacheslav.lessons.animals.Animal;
 
 public class Bird extends Animal
 {
-    public Bird(String name, String color)
+    int height;
+    public Bird(String name, String color, int height)
     {
         super(name,color);
+        this.height=height;
     }
     @Override
     public void voice()
@@ -16,6 +18,11 @@ public class Bird extends Animal
     @Override
     public void move()
     {
-        System.out.println("Летает по воздуху");
+        System.out.println(name + " прыгает по земле лапами");
     }
+    public void fly()
+    {
+        System.out.println(name+" летает на высоте "+ height+" метров ");
+    }
+
 }

@@ -98,7 +98,6 @@ public class TicTacToeNew
                     System.out.println("Введены не координаты");
                     scan.next();
                 }
-
                 y = scan.nextInt();
                 x = scan.nextInt();
             } while (y < 0 || y > fieldSizeY && x < 0 || x > fieldSizeY);

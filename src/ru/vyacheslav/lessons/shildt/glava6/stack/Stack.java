@@ -1,4 +1,4 @@
-package ru.vyacheslav.lessons.shildt.glava6;
+package ru.vyacheslav.lessons.shildt.glava6.stack;
 
 import java.util.Arrays;
 
