@@ -2,7 +2,7 @@ package ru.vyacheslav.lessons.shildt.glava6.stack;
 
 import java.util.Arrays;
 
-public class Stack
+public class  Stack
 {
     private char[] stack;
     private int putloc,getloc;

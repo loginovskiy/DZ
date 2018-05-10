@@ -8,7 +8,7 @@ public class DemoVehicle
         Scanner scn = new Scanner(System.in);
         Vehicle vehicle1 = new Miniven((short)7, (short)70, (short)11);
         Vehicle vehicle2 = new SportCar((short)2, (short)60, (short)14);
-        Vehicle vehicle3 = new Track((short)2,(short)120,(short)20,(short)7000);
+        Vehicle vehicle3 = new Track((short)2,(short)120,(short)20,(short )7000);
         System.out.println("1.Минивен\n2.Спорткар\n3.Грузовик");
         x=scn.nextInt();
         switch (x){
@@ -26,7 +26,7 @@ public class DemoVehicle
             }
             case 3:
             {
-                System.out.println("Транспортное средство спорткар" + "\nКол-во пассажиров: " + vehicle3.getPassengers() +
+                System.out.println("Транспортное средство грузовик3" + "\nКол-во пассажиров: " + vehicle3.getPassengers() +
                         "\nОбъём бака: " + vehicle3.getFuelcap() + "\nРасход на 100км: " + vehicle3.getKpl()+ "\nГрузоподъёмность: "+
                         ((Track)vehicle3).getCargo());
                 break;
