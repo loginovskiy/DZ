@@ -2,27 +2,25 @@ package ru.vyacheslav.lessons.shildt.glava81;
 
 public class intQueue implements Queue
 {
-    public static int counter;
+    public static int putloc;
     int[] array;
-    private int putloc, size;
-    int tmp1, tmp2;
+    private int size, tmp1, tmp2;
+
     public intQueue(int size)
     {
         this.size=size;
         array = new int[size+1];
         putloc=0;
-        counter=0;
     }
     @Override
     public void put(int val)
     {
-        if(putloc>size)
+        if(putloc==size)
         {
             System.out.println("Очередь заполнена!");
             return;
         }
         array[putloc]=val;
-        move(1);
         putloc++;
     }
     @Override
@@ -30,37 +28,25 @@ public class intQueue implements Queue
     {
         if(putloc==0)
         {
-            System.out.println("Очередь пуста");
+            System.out.print("Очередь пуста ");
             return 0;
         }
-        putloc--;
-        return array[putloc];
+        tmp1=array[0];
+        move();
+        return tmp1;
     }
 
     @Override
-    public void move(int n)
+    public void move()
     {
-        if(n>0)
+        tmp1=array[putloc];
+        for (int i = putloc-1; i >=0 ; i--)
         {
-            counter++;
-            tmp1 = array[0];
-            for (int i = 1; i <= counter; i++)
-            {
-                tmp2 = array[i];
-                array[i] = tmp1;
-                tmp1 = tmp2;
-            }
+            tmp2=array[i];
+            array[i]=tmp1;
+            tmp1=tmp2;
         }
-        else
-        {
-            tmp1 = array[counter];
-            counter --;
-            for (int i = 0; i < ; i++)
-            {
-                tmp2=array[counter];
-                array[counter]=tmp1;
-                tmp1=tmp2;
-            }
-        }
+        putloc--;
+
     }
 }

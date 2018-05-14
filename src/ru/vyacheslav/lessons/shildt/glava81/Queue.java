@@ -4,5 +4,5 @@ public interface Queue
 {
     public int get();
     public void put(int val);
-    public void move(int n);
+    public void move();
 }
