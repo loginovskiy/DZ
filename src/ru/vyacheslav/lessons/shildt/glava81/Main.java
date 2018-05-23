@@ -12,7 +12,7 @@ public class Main
             queue.put(i*3);
         }
         //System.out.println(Arrays.toString(((intQueue) queue).array));
-        for (int i = 0; i <5 ; i++)
+        for (int i = 0; i < 11 ; i++)
         {
             System.out.print(queue.get()+" ");
         }

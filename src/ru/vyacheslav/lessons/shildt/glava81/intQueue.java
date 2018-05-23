@@ -31,7 +31,6 @@ public class intQueue implements Queue
             System.out.print("Очередь пуста ");
             return 0;
         }
-        tmp1=array[0];
         move();
         return tmp1;
     }
