@@ -25,7 +25,7 @@ public class TestSaves
 
         catch(FileNotFoundException | NotSerializableException | ClassNotFoundException exc)
         {
-            System.out.println("Файл не найден"+" "+"Ошибка записи в файл");
+            System.out.println("Файл не найден"+" "+"Ошибка записи в файл" + exc);
         }
     }
 }

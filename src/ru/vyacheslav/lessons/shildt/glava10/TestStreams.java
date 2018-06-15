@@ -4,14 +4,16 @@ import java.util.Arrays;
 
 public class TestStreams
 {
+    public static int a;
     public static void main(String[] args)
             throws IOException
     {
-        BufferedInputStream str = new BufferedInputStream(System.in);
-        int count;
-        byte[] arr = new byte[10];
-        count=str.read(arr,3,7);
-        System.out.println(Arrays.toString(arr));
-        System.out.println(count);
+        byte[] data = new byte[10];
+
+        System.in.read(data);
+        for (int i = 0; i < data.length ; i++)
+        {
+            System.out.print((char)data[i]);
+        }
     }
 }

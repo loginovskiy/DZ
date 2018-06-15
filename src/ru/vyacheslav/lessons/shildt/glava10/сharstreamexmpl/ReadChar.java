@@ -7,7 +7,7 @@ public class ReadChar
         int i=0;
         char c;
         char[] arr = new char[2];
-        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in));)
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in), 2);)
         {
             System.out.println("Введите символы; окончание ввода - символ точки ");
             do
