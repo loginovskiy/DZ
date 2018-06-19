@@ -4,8 +4,10 @@ import javafx.scene.layout.BorderRepeat;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Window extends JFrame
+public class Window extends JFrame implements ActionListener
 {
     public static void main(String[] args)
     {
@@ -27,6 +29,8 @@ public class Window extends JFrame
         setSize(400, 400);
         setLocationRelativeTo(null);
         setResizable(false);
+        newGameBtn.addActionListener(this);
+        exitBtn.addActionListener(this);
         JPanel bottomPanel = new JPanel (new GridLayout(1,2));
         bottomPanel.add(exitBtn);
         bottomPanel.add(newGameBtn);
@@ -34,5 +38,11 @@ public class Window extends JFrame
         Map map = new Map();
         add(map, BorderLayout.CENTER);
         setVisible(true);
+    }
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        if( e.getSource() == newGameBtn) System.out.println("Была нажата кнопка NEWGAME");
+        else if(e.getSource() == exitBtn) System.out.println("Была нажата кнопка EXIT");
     }
 }
