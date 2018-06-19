@@ -26,23 +26,30 @@ public class Window extends JFrame implements ActionListener
     public Window()
     {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(400, 400);
+        setSize(600, 600);
         setLocationRelativeTo(null);
         setResizable(false);
-        newGameBtn.addActionListener(this);
-        exitBtn.addActionListener(this);
         JPanel bottomPanel = new JPanel (new GridLayout(1,2));
         bottomPanel.add(exitBtn);
         bottomPanel.add(newGameBtn);
         add(bottomPanel, BorderLayout.SOUTH);
         Map map = new Map();
+
+        newGameBtn.addActionListener(this);
+        exitBtn.addActionListener(this);
         add(map, BorderLayout.CENTER);
         setVisible(true);
+
     }
+
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        if( e.getSource() == newGameBtn) System.out.println("Была нажата кнопка NEWGAME");
+        if( e.getSource() == newGameBtn)
+        {
+            Map map1 = new Map();
+            map1.startNewGame();
+        }
         else if(e.getSource() == exitBtn) System.out.println("Была нажата кнопка EXIT");
     }
 }
